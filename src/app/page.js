@@ -1,6 +1,5 @@
 // src/app/page.js
 "use client";
-
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -18,9 +17,7 @@ export default function Home() {
   return (
     <>
       <SixtHeader />
-
       <div className="relative min-h-screen bg-gradient-to-b from-black via-gray-900 to-orange-600 flex flex-col items-center justify-center px-4 overflow-hidden">
-        {/* Slogan */}
         <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 text-center text-white z-20">
           <h1 className="text-5xl md:text-7xl font-bold leading-tight">
             PREMIUM AUTOS MIETEN.
@@ -29,9 +26,7 @@ export default function Home() {
           </h1>
         </div>
 
-        {/* Formular */}
         <div className="bg-white rounded-3xl shadow-2xl p-6 md:p-8 w-full max-w-5xl z-10">
-          {/* Tabs */}
           <div className="flex gap-2 mb-6">
             <button className="bg-black text-white px-6 py-3 rounded-full font-semibold text-sm flex items-center gap-2">
               Autos
@@ -41,7 +36,6 @@ export default function Home() {
             </button>
           </div>
 
-          {/* Abholung & Rückgabe */}
           <div className="mb-6">
             <label className="block text-sm font-medium text-gray-700 mb-2">
               Abholung & Rückgabe
@@ -63,9 +57,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Datum & Uhrzeit */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Abholung */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Abholdatum
@@ -90,7 +82,6 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Rückgabe */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Rückgabedatum
@@ -117,7 +108,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Button */}
           <div className="mt-8 text-right">
             <button
               type="button"
@@ -129,7 +119,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Hintergrund BMW */}
         <div className="absolute bottom-0 left-0 w-full pointer-events-none z-0"></div>
       </div>
     </>

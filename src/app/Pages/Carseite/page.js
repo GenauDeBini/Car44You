@@ -1,12 +1,9 @@
 "use client";
-
 import { useState, useEffect } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import SixtHeader from "@/components/SixtHeader";
 import Image from "next/image";
-
-// importiere alle Bilder (genaue Namen wie gewünscht)
 import fiat500 from "@/Images/fiat500.png";
 import colt from "@/Images/colt.png";
 import golf from "@/Images/golf.png";
@@ -181,14 +178,12 @@ const categories = ["Alle", "City", "Family", "SUV", "Sport", "E-Car"];
 const AllCarsPage = () => {
   const [activeCategory, setActiveCategory] = useState("Alle");
 
-  // scroll to top on mount (ensures page opens fully at top)
   useEffect(() => {
     if (typeof window !== "undefined") {
       window.scrollTo({ top: 0, left: 0, behavior: "auto" });
     }
   }, []);
 
-  // Preis-Slider
   const prices = cars.map((c) => c.price);
   const minPrice = Math.floor(Math.min(...prices));
   const maxPrice = Math.ceil(Math.max(...prices));
@@ -207,10 +202,8 @@ const AllCarsPage = () => {
     >
       <h1 className="text-4xl font-bold text-center mb-12">Unsere Fahrzeuge</h1>
 
-      {/* Kategorien + Budget-Slider */}
       <div className="flex flex-col items-center mb-16">
         <div className="w-full max-w-5xl flex flex-col md:flex-row items-center md:items-center justify-center md:justify-between gap-12">
-          {/* Kategorien */}
           <div className="flex-1 flex flex-wrap justify-center md:justify-start gap-6">
             {categories.map((cat) => (
               <button
@@ -227,7 +220,6 @@ const AllCarsPage = () => {
             ))}
           </div>
 
-          {/* Budget-Slider */}
           <div className="flex-shrink-0 flex items-center gap-6">
             <span className="text-sm text-gray-300 hidden md:block">
               Max. Budget
@@ -248,7 +240,6 @@ const AllCarsPage = () => {
         </div>
       </div>
 
-      {/* Autos */}
       <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {filteredCars.map((car, index) => (
           <div

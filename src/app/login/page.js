@@ -17,7 +17,7 @@ export default function LoginForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Hier später API-Aufruf einfügen
+
     console.log("Login Daten:", { username, password });
   };
 

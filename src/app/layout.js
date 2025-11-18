@@ -12,11 +12,10 @@ export default function RootLayout({ children }) {
     <html lang="de">
       <body
         className="font-sans antialiased bg-black text-white overscroll-none"
-        style={{ overscrollBehavior: "none" }} // verhindert das "zu weit hoch scrollen"
+        style={{ overscrollBehavior: "none" }}
       >
         <SixtHeader />
         <Navbar />
-        {/* main padding abgestimmt auf Header + Navbar (evtl. anpassen) */}
         <main className="pt-28">{children}</main>
       </body>
     </html>
