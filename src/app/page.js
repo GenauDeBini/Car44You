@@ -5,6 +5,7 @@ import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import SixtHeader from "@/components/SixtHeader";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
   const [pickupDate, setPickupDate] = useState(new Date("2025-11-12"));
@@ -12,6 +13,7 @@ export default function Home() {
   const [returnDate, setReturnDate] = useState(new Date("2025-11-16"));
   const [returnTime, setReturnTime] = useState("08:30");
   const [location, setLocation] = useState("Umeå/BMW");
+  const router = useRouter();
 
   return (
     <>
@@ -117,21 +119,18 @@ export default function Home() {
 
           {/* Button */}
           <div className="mt-8 text-right">
-            <button className="bg-orange-600 text-white px-8 py-3 rounded-full font-semibold text-sm hover:bg-orange-700 transition shadow-lg">
+            <button
+              type="button"
+              onClick={() => router.push("/Pages/Carseite")}
+              className="bg-orange-600 text-white px-6 py-2 rounded-full font-semibold text-sm hover:bg-orange-700 transition-shadow transition-colors duration-200 shadow-lg"
+            >
               Autos anzeigen
             </button>
           </div>
         </div>
 
         {/* Hintergrund BMW */}
-        <div className="absolute bottom-0 left-0 w-full pointer-events-none z-0">
-          <img
-            src="/bmw-hero.jpg"
-            alt="BMW"
-            className="w-full h-auto object-cover opacity-80"
-            style={{ maxHeight: "50vh" }}
-          />
-        </div>
+        <div className="absolute bottom-0 left-0 w-full pointer-events-none z-0"></div>
       </div>
     </>
   );
