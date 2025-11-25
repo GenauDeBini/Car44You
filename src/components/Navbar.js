@@ -37,7 +37,7 @@ export default function Navbar() {
   };
 
   return (
-    <header className="fixed w-full z-40 top-12 bg-transparent backdrop-blur-0">
+    <header className="fixed w-full z-40 top-12 bg-transparent backdrop-blur-none">
       <div className="max-w-4xl mx-auto px-4">
         <nav className="flex items-center justify-between h-16">
           <button
@@ -93,7 +93,7 @@ export default function Navbar() {
         </nav>
 
         {open && (
-          <div className="md:hidden pb-4">
+          <div className="md:hidden pb-4 bg-transparent">
             <div className="flex flex-col gap-3 text-sm">
               {navItems.map((it) => (
                 <NavButton key={it.path} label={it.label} path={it.path} />

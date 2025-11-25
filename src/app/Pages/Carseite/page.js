@@ -197,90 +197,94 @@ const AllCarsPage = () => {
 
   return (
     <div
-      className="min-h-screen bg-gradient-to-b from-gray-900 to-orange-700 text-white py-16 px-6 overscroll-none"
+      className="w-full min-h-screen bg-gradient-to-b from-gray-900 to-orange-700 text-white overscroll-none"
       style={{ overscrollBehavior: "none" }}
     >
-      <h1 className="text-4xl font-bold text-center mb-12">Unsere Fahrzeuge</h1>
+      <div className="w-full max-w-5xl mx-auto py-16 px-6">
+        <h1 className="text-4xl font-bold text-center mb-12">
+          Unsere Fahrzeuge
+        </h1>
 
-      <div className="flex flex-col items-center mb-16">
-        <div className="w-full max-w-5xl flex flex-col md:flex-row items-center md:items-center justify-center md:justify-between gap-12">
-          <div className="flex-1 flex flex-wrap justify-center md:justify-start gap-6">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setActiveCategory(cat)}
-                className={`py-2 px-8 rounded-xl font-semibold transition ${
-                  activeCategory === cat
-                    ? "bg-orange-600 text-white"
-                    : "bg-gray-700 hover:bg-gray-600"
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
-
-          <div className="flex-shrink-0 flex items-center gap-6">
-            <span className="text-sm text-gray-300 hidden md:block">
-              Max. Budget
-            </span>
-            <input
-              aria-label="Maximales Budget"
-              type="range"
-              min={minPrice}
-              max={maxPrice}
-              value={maxBudget}
-              onChange={(e) => setMaxBudget(Number(e.target.value))}
-              className="w-64 md:w-80 accent-orange-600"
-            />
-            <span className="bg-gray-700 text-white px-3 py-1 rounded-full text-sm">
-              CHF {maxBudget}
-            </span>
-          </div>
-        </div>
-      </div>
-
-      <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        {filteredCars.map((car, index) => (
-          <div
-            key={index}
-            className="bg-gray-800 rounded-2xl shadow-lg hover:scale-105 transition p-6 flex flex-col items-center"
-          >
-            {typeof car.image === "object" ? (
-              <Image
-                src={car.image}
-                alt={car.name}
-                width={208}
-                height={128}
-                className="object-contain mb-4"
-              />
-            ) : (
-              <img
-                src={car.image}
-                alt={car.name}
-                className="w-52 h-32 object-contain mb-4"
-              />
-            )}
-            <h2 className="text-xl font-bold">{car.name}</h2>
-            <p className="text-sm text-gray-300">
-              {car.type} – {car.gearbox}
-            </p>
-
-            <div className="flex gap-4 mt-3 text-gray-400 text-sm">
-              <span>👥 {car.seats}</span>
-              <span>🧳 {car.luggage}</span>
-              <span>⚙️ {car.gearbox}</span>
+        <div className="flex flex-col items-center mb-16">
+          <div className="w-full max-w-5xl flex flex-col md:flex-row items-center md:items-center justify-center md:justify-between gap-12">
+            <div className="flex-1 flex flex-wrap justify-center md:justify-start gap-6">
+              {categories.map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => setActiveCategory(cat)}
+                  className={`py-2 px-8 rounded-xl font-semibold transition ${
+                    activeCategory === cat
+                      ? "bg-orange-600 text-white"
+                      : "bg-gray-700 hover:bg-gray-600"
+                  }`}
+                >
+                  {cat}
+                </button>
+              ))}
             </div>
 
-            <p className="text-orange-400 text-lg font-semibold mt-3">
-              CHF {car.price.toFixed(2)} / Tag
-            </p>
-
-            <button className="mt-4 bg-orange-600 hover:bg-orange-500 text-white font-semibold py-2 px-4 rounded-xl">
-              Jetzt buchen
-            </button>
+            <div className="flex-shrink-0 flex items-center gap-6">
+              <span className="text-sm text-gray-300 hidden md:block">
+                Max. Budget
+              </span>
+              <input
+                aria-label="Maximales Budget"
+                type="range"
+                min={minPrice}
+                max={maxPrice}
+                value={maxBudget}
+                onChange={(e) => setMaxBudget(Number(e.target.value))}
+                className="w-64 md:w-80 accent-orange-600"
+              />
+              <span className="bg-gray-700 text-white px-3 py-1 rounded-full text-sm">
+                CHF {maxBudget}
+              </span>
+            </div>
           </div>
-        ))}
+        </div>
+
+        <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          {filteredCars.map((car, index) => (
+            <div
+              key={index}
+              className="bg-gray-800 rounded-2xl shadow-lg hover:scale-105 transition p-6 flex flex-col items-center"
+            >
+              {typeof car.image === "object" ? (
+                <Image
+                  src={car.image}
+                  alt={car.name}
+                  width={208}
+                  height={128}
+                  className="object-contain mb-4"
+                />
+              ) : (
+                <img
+                  src={car.image}
+                  alt={car.name}
+                  className="w-52 h-32 object-contain mb-4"
+                />
+              )}
+              <h2 className="text-xl font-bold">{car.name}</h2>
+              <p className="text-sm text-gray-300">
+                {car.type} – {car.gearbox}
+              </p>
+
+              <div className="flex gap-4 mt-3 text-gray-400 text-sm">
+                <span>👥 {car.seats}</span>
+                <span>🧳 {car.luggage}</span>
+                <span>⚙️ {car.gearbox}</span>
+              </div>
+
+              <p className="text-orange-400 text-lg font-semibold mt-3">
+                CHF {car.price.toFixed(2)} / Tag
+              </p>
+
+              <button className="mt-4 bg-orange-600 hover:bg-orange-500 text-white font-semibold py-2 px-4 rounded-xl">
+                Jetzt buchen
+              </button>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
